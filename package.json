@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "rate-limited-api-service",
+  "version": "1.0.0",
+  "description": "A Node.js/Express API service with rate limiting and authentication",
+  "main": "Main.ts",
+  "scripts": {
+    "start": "ts-node Main.ts",
+    "dev": "nodemon --watch . --ext ts --exec ts-node Main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["api", "rate-limiting", "authentication"],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.1",
+    "pg": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/pg": "^8.16.0",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
