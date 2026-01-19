@@ -120,10 +120,10 @@ app.post('/signUp', anonLimiter, async (req: Request<{}, {}, {email: string}>, r
     }
 })
 
-app.post('/apiKey/:id', authAPI, async (req: Request<{id: string}>, res: Response<{msg: string} | {error: string}>) => {
+app.post('/apiKey/:id', async (req: Request<{id: string}>, res: Response<{msg: string} | {error: string}>) => {
     try {
         const userId = parseInt(req.params.id)
-        if (isNaN(userId) || userId !== req.user!.id) {
+        if (isNaN(userId)){
             return res.status(403).json({ error: 'Access denied' })
         }
         const apiKey = generateApiKey()
@@ -142,3 +142,4 @@ app.post('/apiKey/:id', authAPI, async (req: Request<{id: string}>, res: Respons
 app.listen(port,() =>{ 
     console.log(`Server running on port ${port}`)
 })
+
