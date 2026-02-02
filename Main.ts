@@ -87,7 +87,7 @@ function hashApiKey(apiKey: string): string {
 
 
 
-app.get('/data/:id', authAPI, apiLimiter, async (req: Request<{id: string}>, res: Response) => {
+app.get('/data/:id', apiLimiter, authAPI, async (req: Request<{id: string}>, res: Response) => {
     try {
         const userId = parseInt(req.params.id)
         if (isNaN(userId) || userId !== req.user!.id) {
@@ -142,4 +142,5 @@ app.post('/apiKey/:id', async (req: Request<{id: string}>, res: Response<{msg: s
 app.listen(port,() =>{ 
     console.log(`Server running on port ${port}`)
 })
+
 
